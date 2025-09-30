@@ -28,8 +28,8 @@ module hash_round #(
 	
   // Rotator
   rotator #(.WIDTH(8)) rot_inst (
-    .in       (mixed_a),
-    .out      (rotated_mixed_a),
+    .in (mixed_a),
+    .out (rotated_mixed_a),
     .distance (ROUND),       
     .direction(1'b1)       
   );
