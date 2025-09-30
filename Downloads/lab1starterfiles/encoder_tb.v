@@ -25,6 +25,23 @@ module encoder_tb ();
        // Combine this with a bit shifter to save yourself some typing.
 
        // Put more test cases here. Don't forget edge cases!
+       //student test case 1
+       in = 8'b00000000;
+       expected = 3'd0;
+       #5
+       $display("%b -> %d, expected %d", in, out, expected);
+       
+       //student test case 2
+       in = 8'b00000100;
+       expected = 3'd2;
+       #5
+       $display("%b -> %d, expected %d", in, out, expected);
+       
+       //student test case 3
+       in = 8'b10100100;
+       expected = 3'd0;
+       #5
+       $display("%b -> %d, expected %d", in, out, expected);
 
     end
 
