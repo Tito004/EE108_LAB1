@@ -18,6 +18,23 @@ module arbiter_tb ();
         $display("%b -> %b, expected %b", in, out, expected);
 
         // Add more test cases here
+        //student test case 1
+        in = 8'b0001100;
+        expected = 8'b0000100;
+        #5
+        $display("%b -> %b, expected %b", in, out, expected);
+        
+        //student test case 2
+        in = 8'b00000000;
+        expected = 8'b0000000;
+        #5
+        $display("%b -> %b, expected %b", in, out, expected);
+        
+        //student test case 3
+        in = 8'b1101110;
+        expected = 8'b0000010;
+        #5
+        $display("%b -> %b, expected %b", in, out, expected);
 
     end
 
