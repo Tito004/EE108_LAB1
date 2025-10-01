@@ -50,15 +50,14 @@ module hasher (
         .out_state (seven)           
     );
     
-    assign final_state = six | seven;
+    assign final_state = six ^ seven;
     
     // Rotator
     rotator #(.WIDTH(32)) rot_inst (
         .in (final_state),
         .out (hash),
         .distance ({3'b000, final_state[4:0]}),       
-        .direction(|data_len)       
+        .direction(^data_len)       
     );
     
 endmodule
-
