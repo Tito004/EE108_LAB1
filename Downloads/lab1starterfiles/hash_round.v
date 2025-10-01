@@ -4,7 +4,7 @@ module hash_round #(
   input  wire [7:0]  in_byte,
   input  wire [31:0] in_state,
   output wire [31:0] out_state
-);   
+);
   // Declarations
   wire [7:0] a, b, c, d;
   reg  [7:0] mix;
@@ -19,9 +19,9 @@ module hash_round #(
     if (ROUND <= 2)
       mix = (d & c) | (~d & b);
     else if (ROUND <= 4)
-      mix = d ^ c ^ b;
+      mix = b;
     else
-      mix = (d & b) | (c & ~b);
+      mix = d & c;
   end	
 
   assign mixed_a = a + in_byte + mix;
@@ -35,6 +35,7 @@ module hash_round #(
   );
 	
   // Output state assignment
-  assign out_state = {c, b, d, rotated_mixed_a};
+  assign out_state = {c, b, rotated_mixed_a, d};
 
 endmodule
+
