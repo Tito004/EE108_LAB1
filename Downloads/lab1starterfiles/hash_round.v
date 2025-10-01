@@ -17,12 +17,12 @@ module hash_round #(
   // Mix function
   always @(*) begin
     if (ROUND <= 2)
-      mix = (d & c) | (~d & b);
+      mix = (c & b) | (~b & d); 
     else if (ROUND <= 4)
-      mix = b;
+      mix = (c & b) | (c & d) | (b & d);
     else
-      mix = d & c;
-  end	
+      mix = b ^ c ^ d; 
+  end
 
   assign mixed_a = a + in_byte + mix;
 	
